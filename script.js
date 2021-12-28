@@ -20,13 +20,38 @@ function coloreTarefa (event){
   const coloreCadaTarefa = document.getElementsByTagName("li");
   
   for( let tarefa of coloreCadaTarefa){
-
     
     tarefa.className = "";
-  
     event.target.className = "colorida";  
   }
 }
 listaTarefas.addEventListener("click", coloreTarefa);
+
+/** ======= No 'double click' no item, risca o elemento ======= */
+
+function definiTarefaConcluida (event){
+  
+  const cadaTarefaConcluida = document.getElementsByTagName("li");
+  
+  for( let confereTarefa of cadaTarefaConcluida){
+
+    confereTarefa.className = "";
+    event.target.className = "completed";
+
+  }
+}
+listaTarefas.addEventListener("dblclick", definiTarefaConcluida);
+
+/** ======= Botão que reseta lista ======= */
+
+const botaoResetLista = document.getElementById("apaga-tudo");
+
+
+function resetListaTarefa (){
+  
+  const removeTodasTarefas = document.getElementsByTagName("li");
+      
+}
+botaoResetLista.addEventListener("click", criaTarefa);
 
 
