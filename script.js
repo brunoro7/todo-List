@@ -49,9 +49,9 @@ const botaoResetLista = document.getElementById("apaga-tudo");
 
 function resetListaTarefa (){
   
-  const removeTodasTarefas = document.getElementsByTagName("li");
-      
+  const removeTodasTarefas = document.getElementById("lista-tarefas");
+    removeTodasTarefas.innerHTML = "";
 }
-botaoResetLista.addEventListener("click", criaTarefa);
+botaoResetLista.addEventListener("click", resetListaTarefa);
 
 
