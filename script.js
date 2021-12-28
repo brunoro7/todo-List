@@ -13,8 +13,20 @@ function criaTarefa (){
 }
 botaoCriaTarefa.addEventListener("click", criaTarefa);
 
-/** ======= ======= */
+/** ======= No clicar no item, o background.color = rgb(128, 128, 128) ======= */
 
+function coloreTarefa (event){
+  
+  const coloreCadaTarefa = document.getElementsByTagName("li");
+  
+  for( let tarefa of coloreCadaTarefa){
 
-console.log(botaoCriaTarefa);
+    
+    tarefa.className = "";
+  
+    event.target.className = "colorida";  
+  }
+}
+listaTarefas.addEventListener("click", coloreTarefa);
+
 
