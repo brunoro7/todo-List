@@ -2,7 +2,7 @@ const botaoCriaTarefa = document.getElementById("criar-tarefa");
 const textoInput = document.getElementById("texto-tarefa");
 const listaTarefas = document.getElementById("lista-tarefas");
 const botaoResetLista = document.getElementById("apaga-tudo");
-const botaoRemoveCompletas = document.getElementById("remover-selecionados");
+const botaoRemoveCompletas = document.getElementById("remover-finalizados");
 
 /** ======= Botão que cria e adiciona tarefa, uma a uma ======= */
 function criaTarefa (){
@@ -64,3 +64,22 @@ function resetListaTarefa (){
     removeTodasTarefas.innerHTML = "";
 }
 botaoResetLista.addEventListener("click", resetListaTarefa);
+
+
+// /** ======= Botão que que apaga os riscados ======= */
+
+function apagaTarefasCompletas() {
+   
+  let filhosLista = document.querySelectorAll(".completed");
+  for (let i of filhosLista){
+    listaTarefas.removeChild(i);
+  }
+}
+botaoRemoveCompletas.addEventListener("click", apagaTarefasCompletas);
+
+// function apagaTarefasCompletas() {
+  
+//   let tarefasCompletas = document.querySelectorAll("li.completed");
+//     removeTodasTarefas.innerHTML = "";
+// }
+// botaoResetLista.addEventListener("click", resetListaTarefa);
