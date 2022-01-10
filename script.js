@@ -4,6 +4,7 @@ const listaTarefas = document.getElementById("lista-tarefas");
 const botaoResetLista = document.getElementById("apaga-tudo");
 const botaoRemoveCompletas = document.getElementById("remover-finalizados");
 const botaoRemoveSelecionada = document.getElementById("remover-selecionado");
+const botaoSalvaLista = document.getElementById("salvar-tarefas");
 
 /** ======= Botão que cria e adiciona tarefa, uma a uma ======= */
 function criaTarefa (){
@@ -78,13 +79,6 @@ function apagaTarefasCompletas() {
 }
 botaoRemoveCompletas.addEventListener("click", apagaTarefasCompletas);
 
-// function apagaTarefasCompletas() {
-  
-//   let tarefasCompletas = document.querySelectorAll("li.completed");
-//     removeTodasTarefas.innerHTML = "";
-// }
-// botaoResetLista.addEventListener("click", resetListaTarefa);
-
 /** ======= Botão que que apaga os selecionados ======= */
 
 function apagaTarefaSelecionada() {
@@ -95,3 +89,22 @@ function apagaTarefaSelecionada() {
   }
 }
 botaoRemoveSelecionada.addEventListener("click", apagaTarefaSelecionada);
+
+/** ======= Botão que salva tudo na lista ======= */
+
+//Essa parte serve para salvar a lista no clique
+function salvaLista (){
+
+  let listaAtual = listaTarefas.innerHTML;
+  localStorage.setItem("listaUltimaSessao", listaAtual);
+
+}
+botaoSalvaLista.addEventListener("click", salvaLista);
+
+let listaSalva = localStorage.getItem("listaUltimaSessao");
+
+//Essa parte serve para o windown.onload já carregar a lista salva;
+function carregarLista (){
+  listaTarefas.innerHTML = listaSalva;
+}
+window.onload = carregarLista(); //chama a função, invés de click, ao abrir pagina.
