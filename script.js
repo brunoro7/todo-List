@@ -3,6 +3,7 @@ const textoInput = document.getElementById("texto-tarefa");
 const listaTarefas = document.getElementById("lista-tarefas");
 const botaoResetLista = document.getElementById("apaga-tudo");
 const botaoRemoveCompletas = document.getElementById("remover-finalizados");
+const botaoRemoveSelecionada = document.getElementById("remover-selecionado");
 
 /** ======= Botão que cria e adiciona tarefa, uma a uma ======= */
 function criaTarefa (){
@@ -66,7 +67,7 @@ function resetListaTarefa (){
 botaoResetLista.addEventListener("click", resetListaTarefa);
 
 
-// /** ======= Botão que que apaga os riscados ======= */
+/** ======= Botão que apaga os riscados ======= */
 
 function apagaTarefasCompletas() {
    
@@ -83,3 +84,14 @@ botaoRemoveCompletas.addEventListener("click", apagaTarefasCompletas);
 //     removeTodasTarefas.innerHTML = "";
 // }
 // botaoResetLista.addEventListener("click", resetListaTarefa);
+
+/** ======= Botão que que apaga os selecionados ======= */
+
+function apagaTarefaSelecionada() {
+   
+  let filhoSelected = document.querySelectorAll(".colorida");
+  for (let i of filhoSelected){
+    listaTarefas.removeChild(i);
+  }
+}
+botaoRemoveSelecionada.addEventListener("click", apagaTarefaSelecionada);
